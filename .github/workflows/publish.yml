@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "queue/inbox/**"
+      - "queue/review/**"
       - "content/**"
       - "scripts/**"
       - ".github/workflows/publish.yml"
