@@ -1,0 +1,11 @@
+:root { color-scheme: light dark; --bg: #f6f4ef; --fg: #1c1917; --muted: #57534e; --line: #e7e5e4; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1c1917; --fg: #fafaf9; --muted: #a8a29e; --line: #44403c; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.7 "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+h1, h2, h3 { line-height: 1.3; font-weight: 650; }
+a { color: inherit; }
+.kicker, .date, .ai { color: var(--muted); letter-spacing: 0.04em; }
+.date, .ai, .back { font-size: 0.85rem; }
+article { padding: 1.25rem 0; border-top: 1px solid var(--line); }
+code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; }

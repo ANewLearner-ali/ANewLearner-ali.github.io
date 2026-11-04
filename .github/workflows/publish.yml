@@ -5,15 +5,13 @@ on:
     branches: [main]
     paths:
       - "queue/inbox/**"
-      - "posts/**"
+      - "content/**"
       - "scripts/**"
       - ".github/workflows/publish.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -40,26 +38,10 @@ jobs:
 
       - name: Commit generated posts
         run: |
-          git add posts queue/inbox
+          git add index.html style.css .nojekyll posts content queue/inbox
           if git diff --cached --quiet; then
             echo "No file changes."
           else
             git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Publish queued posts"
             git push origin HEAD:main
           fi
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
