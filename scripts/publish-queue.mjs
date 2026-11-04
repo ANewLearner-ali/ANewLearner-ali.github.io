@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const inboxDir = path.join(root, "queue", "inbox");
-const postsDir = path.join(root, "posts");
-const siteDir = path.join(root, "site");
+const postsDir = path.join(root, "content");
+const htmlDir = path.join(root, "posts");
 
 const blockedHosts = new Set(["localhost", "127.0.0.1", "0.0.0.0", "169.254.169.254", "::1"]);
 
@@ -229,14 +229,14 @@ function renderMarkdown(markdown) {
   return html.join("\n");
 }
 
-function layout(title, body) {
+function layout(title, body, assetPrefix) {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)}</title>
-  <link rel="stylesheet" href="${title === "ANewLearner 的博客" ? "style.css" : "../style.css"}">
+  <link rel="stylesheet" href="${assetPrefix}style.css">
 </head>
 <body>
   <main>${body}</main>
@@ -251,8 +251,10 @@ function buildSite() {
     .filter((name) => name.endsWith(".md"))
     .map((name) => parsePost(path.join(postsDir, name)))
     .sort((a, b) => String(b.date).localeCompare(String(a.date)));
-  fs.rmSync(siteDir, { recursive: true, force: true });
-  fs.mkdirSync(path.join(siteDir, "posts"), { recursive: true });
+  fs.mkdirSync(htmlDir, { recursive: true });
+  for (const file of fs.readdirSync(htmlDir)) {
+    if (file.endsWith(".html")) fs.unlinkSync(path.join(htmlDir, file));
+  }
   const items = posts
     .map(
       (post) => `<article>
@@ -262,15 +264,17 @@ function buildSite() {
       </article>`,
     )
     .join("\n");
+  fs.writeFileSync(path.join(root, ".nojekyll"), "", "utf8");
+  fs.writeFileSync(path.join(root, "style.css"), siteCss, "utf8");
   fs.writeFileSync(
-    path.join(siteDir, "index.html"),
-    layout("ANewLearner 的博客", `<header><p class="kicker">Blog</p><h1>ANewLearner 的博客</h1></header>\n${items}`),
+    path.join(root, "index.html"),
+    layout("ANewLearner 的博客", `<header><p class="kicker">Blog</p><h1>ANewLearner 的博客</h1></header>\n${items}`, ""),
     "utf8",
   );
   for (const post of posts) {
     const note = post.ai ? `<p class="ai">AI 辅助生成</p>` : "";
     fs.writeFileSync(
-      path.join(siteDir, "posts", `${path.basename(post.href)}`),
+      path.join(htmlDir, path.basename(post.href)),
       layout(
         post.title,
         `<p class="back"><a href="../index.html">返回</a></p>
@@ -278,11 +282,11 @@ function buildSite() {
         <h1>${escapeHtml(post.title)}</h1>
         ${note}
         ${renderMarkdown(post.markdown)}`,
+        "../",
       ),
       "utf8",
     );
   }
-  fs.writeFileSync(path.join(siteDir, "style.css"), siteCss, "utf8");
 }
 
 const siteCss = `:root { color-scheme: light dark; --bg: #f6f4ef; --fg: #1c1917; --muted: #57534e; --line: #e7e5e4; }

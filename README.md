@@ -2,6 +2,8 @@
 
 站点地址：<https://anewlearner-ali.github.io>
 
+这个仓库名是用户主页站点，GitHub 会固定发布 `main` 分支。流水线把生成的页面提交回分支，并用 `.nojekyll` 避免 Jekyll 改写文章。
+
 小程序只负责把一篇想法交给这个仓库。耗时的检索、写作和发布都在 GitHub Actions 里完成。
 
 ## 怎么发一篇
