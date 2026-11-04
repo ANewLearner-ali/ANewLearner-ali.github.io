@@ -111,13 +111,22 @@ async function writeWithDeepSeek(job) {
   const summary = String(article.summary || "").trim().slice(0, 160);
   const markdown = String(article.markdown || "").trim();
   if (!markdown) throw new Error("DeepSeek 没有返回正文");
-  const date = today();
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(String(job.date || "")) ? job.date : today();
   const slug = slugify(job.slug || job.jobId || title) || `post-${Date.now()}`;
   const filename = `${date}-${slug}.md`;
   const target = path.join(postsDir, filename);
   if (fs.existsSync(target)) throw new Error(`文章已存在：${filename}`);
   const body = `---\ntitle: ${yamlString(title)}\ndate: ${date}\nsummary: ${yamlString(summary)}\nai: true\n---\n\n${markdown}\n`;
   fs.writeFileSync(target, body, "utf8");
+  const statusDir = path.join(root, "queue", "status");
+  fs.mkdirSync(statusDir, { recursive: true });
+  const statusName = String(job.jobId || slug).replace(/[^a-zA-Z0-9._-]/g, "") || slug;
+  const page = `https://anewlearner-ali.github.io/posts/${filename.replace(/\.md$/, ".html")}`;
+  fs.writeFileSync(
+    path.join(statusDir, `${statusName}.json`),
+    `${JSON.stringify({ jobId: job.jobId || statusName, title, url: page, status: "published" }, null, 2)}\n`,
+    "utf8",
+  );
 }
 
 function yamlString(value) {
