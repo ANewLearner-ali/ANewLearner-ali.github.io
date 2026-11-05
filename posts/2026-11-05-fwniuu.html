@@ -1,41 +1,357 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-look="sheet" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SEM入门指南：小白也能看懂的关键数据</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f6fa'/%3E%3Crect x='7' y='6' width='2' height='20' fill='%23a8382f'/%3E%3Crect x='13' y='9' width='12' height='2' fill='%2317252f'/%3E%3Crect x='13' y='15' width='12' height='2' fill='%2317252f' opacity='.6'/%3E%3Crect x='13' y='21' width='8' height='2' fill='%2317252f' opacity='.45'/%3E%3C/svg%3E">
+  <script>(function(){var r=document.documentElement;try{var t=localStorage.getItem("blog-theme")||"auto";var dark=t==="dark"||(t==="auto"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);r.setAttribute("data-theme",dark?"dark":"light");r.setAttribute("data-theme-choice",t);var look=localStorage.getItem("blog-look")||"";var q="";try{q=new URLSearchParams(location.search).get("look")||"";}catch(e2){}if(q==="sheet"||q==="index"||q==="pages")look=q;if(look!=="index"&&look!=="pages")look="sheet";r.setAttribute("data-look",look);}catch(e){r.setAttribute("data-theme","light");r.setAttribute("data-theme-choice","auto");r.setAttribute("data-look","sheet");}})();</script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="../style.css">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css"><style>.toolbar,.to-top,.seg{display:none}</style></noscript>
 </head>
-<body>
-  <main><p class="back"><a href="../index.html">返回</a></p>
-        <p class="cat"><a href="../index.html#life">人生感悟</a></p>
-        <p class="date">2026-11-05</p>
-        <h1>SEM入门指南：小白也能看懂的关键数据</h1>
-        <p class="ai">AI 辅助生成</p>
-        <p>如果你刚接触数字营销，可能经常听到“SEM”这个词。它听起来有点技术范儿，但其实理解起来并不难。SEM（Search Engine Marketing，搜索引擎营销）简单说就是通过付费广告在搜索引擎上推广你的产品或服务。比如你在百度搜索“英语培训”，出来的前几条结果旁边带有“广告”字样，那就是SEM的典型形式。</p>
+<body data-page="essay" data-filter="all">
+  <a class="skip" href="#writing">跳到正文</a>
+  <div class="frame is-essay">
+        <div class="margin-line" aria-hidden="true"><span class="read-mark"></span></div>
+        <header class="mast">
+          <p class="back"><a href="../index.html#life">← 回到人生感悟</a></p>
+          <div class="toolbar">
+            <div class="seg looks" role="group" aria-label="版式">
+        <button type="button" data-look="sheet" aria-pressed="true">稿纸</button>
+        <button type="button" data-look="index" aria-pressed="false">书架</button>
+        <button type="button" data-look="pages" aria-pressed="false">散页</button>
+      </div>
+            <div class="seg theme" role="group" aria-label="配色">
+        <button type="button" data-theme-choice="auto" aria-pressed="true">自动</button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">浅色</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false">深色</button>
+      </div>
+          </div>
+        </header>
+        <div class="essay-layout">
+          <article class="essay" id="writing" tabindex="-1">
+            <p class="cat"><a href="../index.html#life">人生感悟</a></p>
+            <h1>SEM入门指南：小白也能看懂的关键数据</h1>
+            <p class="byline">
+              <time datetime="2026-11-05">2026-11-05</time>
+              <span>约 4 分钟读完</span>
+            </p>
+            <p class="ai">AI 辅助生成 · 发布前经人工确认</p>
+            <div class="toc-slot"><details class="toc">
+            <summary><span>目录</span><span class="toc-count">8 节</span></summary>
+            <ol><li class="lvl-2"><a href="#h-1">1. 关键词：SEM的起点</a></li><li class="lvl-2"><a href="#h-2">2. 展现量、点击量和点击率（CTR）</a></li><li class="lvl-2"><a href="#h-3">3. 质量度：搜索引擎给你的“评分”</a></li><li class="lvl-2"><a href="#h-4">4. 平均点击价格（CPC）</a></li><li class="lvl-2"><a href="#h-5">5. 转化与转化率</a></li><li class="lvl-2"><a href="#h-6">6. 投资回报率（ROI）</a></li><li class="lvl-2"><a href="#h-7">7. 其他有用数据</a></li><li class="lvl-2"><a href="#h-8">总结</a></li></ol>
+          </details></div>
+            <div class="prose"><p>如果你刚接触数字营销，可能经常听到“SEM”这个词。它听起来有点技术范儿，但其实理解起来并不难。SEM（Search Engine Marketing，搜索引擎营销）简单说就是通过付费广告在搜索引擎上推广你的产品或服务。比如你在百度搜索“英语培训”，出来的前几条结果旁边带有“广告”字样，那就是SEM的典型形式。</p>
 <p>这篇文章不会堆砌术语，而是带你认识SEM中几个最关键的数据指标。知道了这些数据代表什么，你就能看懂广告账户的基本情况，甚至开始思考怎么优化。</p>
-<h2>1. 关键词：SEM的起点</h2>
+<h2 id="h-1">1. 关键词：SEM的起点</h2>
 <p>SEM广告是围绕关键词展开的。你选择一批关键词，当用户搜索这些词时，你的广告就有机会展示。关键词决定了你的广告能触达哪些人。</p>
 <p>关键词数据里，你需要关注两个基本点：<strong>搜索量</strong>和<strong>竞争程度</strong>。搜索量指这个词每天被搜多少次，竞争程度则反映有多少广告主在抢这个词。搜索量高、竞争激烈的词，通常点击价格也高。新手可以先从一些搜索量适中、竞争较小的长尾词入手，成本更低，转化也可能更精准。</p>
-<h2>2. 展现量、点击量和点击率（CTR）</h2>
+<h2 id="h-2">2. 展现量、点击量和点击率（CTR）</h2>
 <p>广告展示在用户面前，称为一次<strong>展现</strong>（Impression）。用户看到广告后点击了，就是一次<strong>点击</strong>（Click）。点击量除以展现量，就是<strong>点击率</strong>（CTR，Click-Through Rate）。</p>
 <p>点击率是衡量广告吸引力的重要指标。比如你的广告展现了1000次，被点击了50次，点击率就是5%。一般来说，点击率越高，说明广告文案和关键词的匹配度越好，用户越感兴趣。点击率也会影响搜索引擎对你广告质量的评价，进而影响你的点击价格。</p>
-<h2>3. 质量度：搜索引擎给你的“评分”</h2>
+<h2 id="h-3">3. 质量度：搜索引擎给你的“评分”</h2>
 <p>在百度、Google等平台上，广告的排名和点击价格不仅取决于你出价多少，还取决于一个隐藏的分数——<strong>质量度</strong>（Quality Score）。质量度是搜索引擎对广告相关性、着陆页体验和点击率的综合评分。</p>
 <p>质量度越高，你就能用更低的出价获得更好的排名。比如同样出价2元，质量度高的广告可能排第一，质量度低的可能排第三。所以优化质量度是SEM的重要工作，具体包括：提高关键词与广告文案的相关性、优化着陆页内容、提升点击率等。</p>
-<h2>4. 平均点击价格（CPC）</h2>
+<h2 id="h-4">4. 平均点击价格（CPC）</h2>
 <p><strong>CPC</strong>（Cost Per Click）指你为每次点击支付的费用。在竞价广告中，你的实际点击价格往往低于你的出价，因为平台采用“第二价格”机制：你只需比下一名出价高一点点就能保住位置。</p>
 <p>CPC受竞争程度和质量度影响。竞争越激烈，CPC越高；质量度越高，CPC越低。控制CPC是控制成本的关键，但不要一味追求低CPC，因为低CPC可能意味着流量质量差。</p>
-<h2>5. 转化与转化率</h2>
+<h2 id="h-5">5. 转化与转化率</h2>
 <p>用户点击广告后，在你网站上完成了 desired action（比如注册、下单、咨询），这就是一次<strong>转化</strong>（Conversion）。转化次数除以点击次数，就是<strong>转化率</strong>（CVR，Conversion Rate）。</p>
 <p>转化率是SEM的终极指标之一。点击率再高，如果没人转化，广告也是失败的。影响转化率的因素很多：着陆页设计、产品价格、促销活动、客服响应等。优化转化率往往比降低CPC更能提升整体效果。</p>
-<h2>6. 投资回报率（ROI）</h2>
+<h2 id="h-6">6. 投资回报率（ROI）</h2>
 <p><strong>ROI</strong>（Return on Investment）衡量你花的广告费赚回了多少钱。计算公式是：（收入 - 成本）/ 成本 × 100%。比如你花了1000元广告费，带来了3000元销售额，ROI就是200%。</p>
 <p>ROI是老板最关心的数据。提高ROI有两个方向：降低成本和增加收入。降低成本包括优化关键词、提升质量度、调整投放时间等；增加收入则要靠提高转化率和客单价。</p>
-<h2>7. 其他有用数据</h2>
+<h2 id="h-7">7. 其他有用数据</h2>
 <p>除了以上核心指标，还有一些数据值得关注：</p>
 <ul><li><strong> impression share（展现份额）</strong>：你的广告获得了多少可获得的展现。展现份额低，说明你的预算或出价可能不足。</li><li><strong>平均排名</strong>：广告的平均位置。排名越靠前，通常点击率越高，但成本也越高。</li><li><strong>无效点击</strong>：包括恶意点击或误点击。平台一般会过滤无效点击，但你需要关注异常数据。</li></ul>
-<h2>总结</h2>
-<p>SEM看似复杂，但抓住几个关键数据就能入门：关键词决定流量方向，点击率反映广告吸引力，质量度影响成本和排名，转化率衡量落地效果，ROI判断整体盈亏。作为小白，你不需要一开始就精通所有细节，先学会看这些数据，理解它们之间的关系，再逐步尝试优化。记住，SEM是一个持续测试和调整的过程，数据是你最好的朋友。</p></main>
+<h2 id="h-8">总结</h2>
+<p>SEM看似复杂，但抓住几个关键数据就能入门：关键词决定流量方向，点击率反映广告吸引力，质量度影响成本和排名，转化率衡量落地效果，ROI判断整体盈亏。作为小白，你不需要一开始就精通所有细节，先学会看这些数据，理解它们之间的关系，再逐步尝试优化。记住，SEM是一个持续测试和调整的过程，数据是你最好的朋友。</p></div>
+            <div class="essay-end">
+              <nav class="pager" aria-label="相邻文章"><a class="pager-prev" href="2026-11-05-54bqiq.html"><span>上一篇</span><strong>SEO实战指南：从原理到落地的系统化思考</strong></a><a class="pager-next" href="2026-11-05-sb512s.html"><span>下一篇</span><strong>此刻，就是全部</strong></a></nav>
+              <div class="essay-tools">
+                <button type="button" class="copy" data-copy>复制本文链接</button>
+                <a class="back-home" href="../index.html">全部文章</a>
+              </div>
+            </div>
+          </article>
+          <aside class="toc-rail" aria-label="文章目录"></aside>
+        </div>
+        </div>
+  <button class="to-top" type="button" tabindex="-1">回到顶部</button>
+  <script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var page = body.getAttribute("data-page");
+  var CATS = ["life","work","tips","travel","hobby"];
+  var THEME_KEY = "blog-theme";
+  var LOOK_KEY = "blog-look";
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+  function store(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) {}
+  }
+  function mark(selector, attr, value) {
+    var buttons = document.querySelectorAll(selector + " button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute("aria-pressed", buttons[i].getAttribute(attr) === value ? "true" : "false");
+    }
+  }
+  function applyTheme(value) {
+    if (value !== "light" && value !== "dark") value = "auto";
+    var dark = value === "dark" || (value === "auto" && mq && mq.matches);
+    root.setAttribute("data-theme", dark ? "dark" : "light");
+    root.setAttribute("data-theme-choice", value);
+    mark(".theme", "data-theme-choice", value);
+    store(THEME_KEY, value);
+  }
+  function applyLook(value) {
+    if (value !== "index" && value !== "pages") value = "sheet";
+    root.setAttribute("data-look", value);
+    mark(".looks", "data-look", value);
+    store(LOOK_KEY, value);
+  }
+  applyTheme(root.getAttribute("data-theme-choice") || "auto");
+  applyLook(root.getAttribute("data-look") || "sheet");
+  if (mq && mq.addEventListener) {
+    mq.addEventListener("change", function () {
+      if ((root.getAttribute("data-theme-choice") || "auto") === "auto") applyTheme("auto");
+    });
+  }
+
+  var chips = document.querySelectorAll(".chips a");
+  var input = document.getElementById("q");
+  var result = document.getElementById("result");
+  var writing = document.getElementById("writing");
+  var shelves = writing ? Array.prototype.slice.call(writing.querySelectorAll(".shelf")) : [];
+  var query = "";
+
+  function hashKey(href) {
+    var i = (href || "").indexOf("#");
+    return i === -1 ? "all" : href.slice(i + 1) || "all";
+  }
+  function activeCat() {
+    var key = location.hash ? location.hash.slice(1) : "all";
+    return key === "all" || CATS.indexOf(key) !== -1 ? key : "all";
+  }
+  function setChips(cat) {
+    for (var i = 0; i < chips.length; i++) {
+      if (hashKey(chips[i].getAttribute("href")) === cat) chips[i].setAttribute("aria-current", "true");
+      else chips[i].removeAttribute("aria-current");
+    }
+  }
+  function applyView(cat) {
+    if (page !== "home" || !writing) return;
+    if (cat !== "all" && CATS.indexOf(cat) === -1) cat = "all";
+    var q = query.trim().toLowerCase();
+    var searching = q !== "";
+    var total = 0;
+    body.setAttribute("data-filter", searching ? "all" : cat);
+    body.classList.toggle("is-searching", searching);
+    setChips(searching ? "all" : cat);
+    for (var i = 0; i < shelves.length; i++) {
+      var shelf = shelves[i];
+      var key = shelf.getAttribute("data-cat");
+      var entries = shelf.querySelectorAll(".entry");
+      var hits = 0;
+      for (var j = 0; j < entries.length; j++) {
+        var entry = entries[j];
+        var match = searching ? String(entry.getAttribute("data-search")).indexOf(q) !== -1 : true;
+        if (match) hits++;
+        entry.hidden = !match;
+      }
+      shelf.classList.toggle("no-match", searching && hits === 0);
+      if (searching) total += hits;
+      else if (entries.length && (cat === "all" || cat === key)) total += entries.length;
+    }
+    if (result) {
+      if (searching) result.textContent = total ? "找到 " + total + " 篇" : "没有匹配的文章";
+      else if (cat === "all") result.textContent = "共 " + total + " 篇";
+      else result.textContent = "这一类 " + total + " 篇";
+    }
+    document.title = searching
+      ? "搜索：" + query.trim() + " · ANewLearner 的博客"
+      : "ANewLearner 的博客";
+  }
+
+  if (page === "home" && writing) {
+    if (input) {
+      input.addEventListener("input", function () {
+        query = input.value || "";
+        if (query.trim() && activeCat() !== "all") {
+          history.replaceState(null, "", location.pathname + location.search);
+        }
+        applyView(query.trim() ? "all" : activeCat());
+      });
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          input.value = "";
+          query = "";
+          applyView(activeCat());
+          input.blur();
+        }
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (!input || event.key !== "/") return;
+      var tag = (document.activeElement && document.activeElement.tagName) || "";
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+      event.preventDefault();
+      input.focus();
+      input.select();
+    });
+    window.addEventListener("hashchange", function () { applyView(activeCat()); });
+    window.addEventListener("popstate", function () { applyView(activeCat()); });
+    applyView(activeCat());
+  }
+
+  document.addEventListener("click", function (event) {
+    var target = event.target;
+    if (!target.closest) return;
+    var lookButton = target.closest(".looks button");
+    if (lookButton) {
+      applyLook(lookButton.getAttribute("data-look"));
+      return;
+    }
+    var themeButton = target.closest(".theme button");
+    if (themeButton) {
+      applyTheme(themeButton.getAttribute("data-theme-choice"));
+      return;
+    }
+    var chip = target.closest(".chips a");
+    if (chip && page === "home" && writing) {
+      event.preventDefault();
+      var next = hashKey(chip.getAttribute("href"));
+      if (next === activeCat() && next !== "all") next = "all";
+      if (input) {
+        input.value = "";
+        query = "";
+      }
+      var url = next === "all" ? location.pathname + location.search : "#" + next;
+      history.pushState(null, "", url);
+      applyView(next);
+      if (input) input.blur();
+      return;
+    }
+    var copyButton = target.closest("[data-copy]");
+    if (copyButton) {
+      var done = function () {
+        copyButton.textContent = "已复制链接";
+        copyButton.classList.add("is-done");
+        setTimeout(function () {
+          copyButton.textContent = "复制本文链接";
+          copyButton.classList.remove("is-done");
+        }, 2000);
+      };
+      var fallback = function () {
+        var area = document.createElement("textarea");
+        area.value = location.href;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.top = "-1000px";
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand("copy");
+          done();
+        } catch (e) {
+          copyButton.textContent = "请手动复制地址栏链接";
+        }
+        document.body.removeChild(area);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(location.href).then(done, fallback);
+      } else {
+        fallback();
+      }
+      return;
+    }
+    var top = target.closest(".to-top");
+    if (top) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  var toTop = document.querySelector(".to-top");
+  if (toTop) {
+    var onTopScroll = function () {
+      toTop.classList.toggle("is-on", window.scrollY > 700);
+    };
+    window.addEventListener("scroll", onTopScroll, { passive: true });
+    onTopScroll();
+  }
+
+  var readMark = document.querySelector(".read-mark");
+  if (readMark && page === "essay") {
+    var onProgress = function () {
+      var height = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = height > 0 ? window.scrollY / height : 0;
+      readMark.style.height = Math.max(0, Math.min(1, ratio)) * 100 + "%";
+    };
+    window.addEventListener("scroll", onProgress, { passive: true });
+    window.addEventListener("resize", onProgress);
+    onProgress();
+  }
+
+  var tocLinks = document.querySelectorAll(".toc a[href^='#']");
+  var tocSlot = document.querySelector(".toc-slot");
+  var tocRail = document.querySelector(".toc-rail");
+  var wide = window.matchMedia ? window.matchMedia("(min-width: 1120px)") : null;
+  function placeToc() {
+    if (!tocSlot || !tocRail) return;
+    var toc = tocSlot.querySelector(".toc") || tocRail.querySelector(".toc");
+    if (!toc) return;
+    var target = wide && wide.matches ? tocRail : tocSlot;
+    if (toc.parentNode !== target) target.appendChild(toc);
+    if (wide && wide.matches) toc.setAttribute("open", "");
+    else toc.removeAttribute("open");
+  }
+  placeToc();
+  if (wide && wide.addEventListener) wide.addEventListener("change", placeToc);
+
+  if (tocLinks.length && window.IntersectionObserver) {
+    var byId = {};
+    var headings = [];
+    for (var i = 0; i < tocLinks.length; i++) {
+      var anchor = tocLinks[i].getAttribute("href").slice(1);
+      var heading = document.getElementById(anchor);
+      if (!heading) continue;
+      byId[anchor] = tocLinks[i];
+      headings.push(heading);
+    }
+    var current = "";
+    var setCurrent = function (id) {
+      if (id === current) return;
+      if (current && byId[current]) byId[current].classList.remove("is-reading");
+      current = id;
+      if (byId[id]) {
+        byId[id].classList.add("is-reading");
+        var rail = byId[id].closest ? byId[id].closest("ol") : null;
+        var link = byId[id];
+        if (rail && link.offsetTop !== undefined) {
+          var top = link.offsetTop - rail.clientHeight / 2;
+          if (top > 0) rail.scrollTo({ top: top, behavior: "smooth" });
+        }
+      }
+    };
+    var observer = new IntersectionObserver(
+      function (records) {
+        var visible = records.filter(function (r) {
+          return r.isIntersecting;
+        });
+        if (!visible.length) return;
+        visible.sort(function (a, b) {
+          return a.boundingClientRect.top - b.boundingClientRect.top;
+        });
+        setCurrent(visible[0].target.id);
+      },
+      { rootMargin: "-15% 0px -70% 0px", threshold: [0, 1] },
+    );
+    for (var k = 0; k < headings.length; k++) observer.observe(headings[k]);
+  }
+})();
+</script>
 </body>
 </html>

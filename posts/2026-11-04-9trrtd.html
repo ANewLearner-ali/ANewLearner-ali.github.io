@@ -1,28 +1,344 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-look="sheet" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>当个人博客接入日常助手：一次最小化验证</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f6fa'/%3E%3Crect x='7' y='6' width='2' height='20' fill='%23a8382f'/%3E%3Crect x='13' y='9' width='12' height='2' fill='%2317252f'/%3E%3Crect x='13' y='15' width='12' height='2' fill='%2317252f' opacity='.6'/%3E%3Crect x='13' y='21' width='8' height='2' fill='%2317252f' opacity='.45'/%3E%3C/svg%3E">
+  <script>(function(){var r=document.documentElement;try{var t=localStorage.getItem("blog-theme")||"auto";var dark=t==="dark"||(t==="auto"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);r.setAttribute("data-theme",dark?"dark":"light");r.setAttribute("data-theme-choice",t);var look=localStorage.getItem("blog-look")||"";var q="";try{q=new URLSearchParams(location.search).get("look")||"";}catch(e2){}if(q==="sheet"||q==="index"||q==="pages")look=q;if(look!=="index"&&look!=="pages")look="sheet";r.setAttribute("data-look",look);}catch(e){r.setAttribute("data-theme","light");r.setAttribute("data-theme-choice","auto");r.setAttribute("data-look","sheet");}})();</script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="../style.css">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css"><style>.toolbar,.to-top,.seg{display:none}</style></noscript>
 </head>
-<body>
-  <main><p class="back"><a href="../index.html">返回</a></p>
-        <p class="cat"><a href="../index.html#life">人生感悟</a></p>
-        <p class="date">2026-11-04</p>
-        <h1>当个人博客接入日常助手：一次最小化验证</h1>
-        
-        <p>最近，我把个人博客接入了日常助手。不过，这次我没有打算展开整个系统的设计，只想验证一个最简单的场景：从首页把一段想法交给流水线，再由 GitHub Actions 写成文章并发布。</p>
-<h2>为什么先做这个验证</h2>
+<body data-page="essay" data-filter="all">
+  <a class="skip" href="#writing">跳到正文</a>
+  <div class="frame is-essay">
+        <div class="margin-line" aria-hidden="true"><span class="read-mark"></span></div>
+        <header class="mast">
+          <p class="back"><a href="../index.html#life">← 回到人生感悟</a></p>
+          <div class="toolbar">
+            <div class="seg looks" role="group" aria-label="版式">
+        <button type="button" data-look="sheet" aria-pressed="true">稿纸</button>
+        <button type="button" data-look="index" aria-pressed="false">书架</button>
+        <button type="button" data-look="pages" aria-pressed="false">散页</button>
+      </div>
+            <div class="seg theme" role="group" aria-label="配色">
+        <button type="button" data-theme-choice="auto" aria-pressed="true">自动</button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">浅色</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false">深色</button>
+      </div>
+          </div>
+        </header>
+        <div class="essay-layout">
+          <article class="essay" id="writing" tabindex="-1">
+            <p class="cat"><a href="../index.html#life">人生感悟</a></p>
+            <h1>当个人博客接入日常助手：一次最小化验证</h1>
+            <p class="byline">
+              <time datetime="2026-11-04">2026-11-04</time>
+              <span>约 2 分钟读完</span>
+            </p>
+            
+            <div class="toc-slot"><details class="toc">
+            <summary><span>目录</span><span class="toc-count">4 节</span></summary>
+            <ol><li class="lvl-2"><a href="#h-1">为什么先做这个验证</a></li><li class="lvl-2"><a href="#h-2">流水线是如何工作的</a></li><li class="lvl-2"><a href="#h-3">这次验证的结果</a></li><li class="lvl-2"><a href="#h-4">下一步</a></li></ol>
+          </details></div>
+            <div class="prose"><p>最近，我把个人博客接入了日常助手。不过，这次我没有打算展开整个系统的设计，只想验证一个最简单的场景：从首页把一段想法交给流水线，再由 GitHub Actions 写成文章并发布。</p>
+<h2 id="h-1">为什么先做这个验证</h2>
 <p>在构建自动化写作流程时，最容易出问题的地方往往是各个环节的衔接。想法如何传递？流水线如何触发？文章如何生成并发布？如果这些基础环节没有跑通，后续再多的功能都是空中楼阁。所以，我决定先聚焦于这个最小闭环，确保从输入到输出的路径是畅通的。</p>
-<h2>流水线是如何工作的</h2>
+<h2 id="h-2">流水线是如何工作的</h2>
 <p>整个过程可以概括为三个步骤：</p>
 <ol><li><strong>提交想法</strong>：在博客首页，我有一个简单的输入框，用来填写文章标题和初步想法。提交后，这些信息会被发送到日常助手的接口。</li><li><strong>触发流水线</strong>：日常助手接收到想法后，会将其格式化为一个特定的请求，触发 GitHub Actions 的工作流。这个工作流配置在博客的代码仓库中。</li><li><strong>生成并发布</strong>：GitHub Actions 启动后，会运行一个脚本，调用语言模型根据想法生成完整的 Markdown 文章，然后自动提交到仓库并触发部署，最终文章出现在博客上。</li></ol>
-<h2>这次验证的结果</h2>
+<h2 id="h-3">这次验证的结果</h2>
 <p>我提交了一个简单的想法：“个人博客已经接到日常助手。这次只验证从首页把一段想法交给流水线，再由 GitHub Actions 写成文章并发布。” 几分钟后，一篇结构完整的文章就出现在了博客上，标题、摘要和正文都符合预期。</p>
 <p>整个过程没有人工干预，从想法到发布完全自动化。这证明基础流水线是可行的，也为后续扩展功能打下了基础。</p>
-<h2>下一步</h2>
+<h2 id="h-4">下一步</h2>
 <p>虽然这次验证成功了，但还有很多细节需要完善，比如错误处理、内容质量优化、更灵活的触发方式等。不过，那是以后的事了。现在，至少我知道这条路径是通的。</p>
-<p>如果你也在构建类似的自动化写作流程，不妨先从最小闭环开始验证，再逐步迭代。</p></main>
+<p>如果你也在构建类似的自动化写作流程，不妨先从最小闭环开始验证，再逐步迭代。</p></div>
+            <div class="essay-end">
+              <nav class="pager" aria-label="相邻文章"><a class="pager-prev" href="2026-11-05-sb512s.html"><span>上一篇</span><strong>此刻，就是全部</strong></a><a class="pager-next" href="2026-11-04-ready.html"><span>下一篇</span><strong>博客已准备好</strong></a></nav>
+              <div class="essay-tools">
+                <button type="button" class="copy" data-copy>复制本文链接</button>
+                <a class="back-home" href="../index.html">全部文章</a>
+              </div>
+            </div>
+          </article>
+          <aside class="toc-rail" aria-label="文章目录"></aside>
+        </div>
+        </div>
+  <button class="to-top" type="button" tabindex="-1">回到顶部</button>
+  <script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var page = body.getAttribute("data-page");
+  var CATS = ["life","work","tips","travel","hobby"];
+  var THEME_KEY = "blog-theme";
+  var LOOK_KEY = "blog-look";
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+  function store(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) {}
+  }
+  function mark(selector, attr, value) {
+    var buttons = document.querySelectorAll(selector + " button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute("aria-pressed", buttons[i].getAttribute(attr) === value ? "true" : "false");
+    }
+  }
+  function applyTheme(value) {
+    if (value !== "light" && value !== "dark") value = "auto";
+    var dark = value === "dark" || (value === "auto" && mq && mq.matches);
+    root.setAttribute("data-theme", dark ? "dark" : "light");
+    root.setAttribute("data-theme-choice", value);
+    mark(".theme", "data-theme-choice", value);
+    store(THEME_KEY, value);
+  }
+  function applyLook(value) {
+    if (value !== "index" && value !== "pages") value = "sheet";
+    root.setAttribute("data-look", value);
+    mark(".looks", "data-look", value);
+    store(LOOK_KEY, value);
+  }
+  applyTheme(root.getAttribute("data-theme-choice") || "auto");
+  applyLook(root.getAttribute("data-look") || "sheet");
+  if (mq && mq.addEventListener) {
+    mq.addEventListener("change", function () {
+      if ((root.getAttribute("data-theme-choice") || "auto") === "auto") applyTheme("auto");
+    });
+  }
+
+  var chips = document.querySelectorAll(".chips a");
+  var input = document.getElementById("q");
+  var result = document.getElementById("result");
+  var writing = document.getElementById("writing");
+  var shelves = writing ? Array.prototype.slice.call(writing.querySelectorAll(".shelf")) : [];
+  var query = "";
+
+  function hashKey(href) {
+    var i = (href || "").indexOf("#");
+    return i === -1 ? "all" : href.slice(i + 1) || "all";
+  }
+  function activeCat() {
+    var key = location.hash ? location.hash.slice(1) : "all";
+    return key === "all" || CATS.indexOf(key) !== -1 ? key : "all";
+  }
+  function setChips(cat) {
+    for (var i = 0; i < chips.length; i++) {
+      if (hashKey(chips[i].getAttribute("href")) === cat) chips[i].setAttribute("aria-current", "true");
+      else chips[i].removeAttribute("aria-current");
+    }
+  }
+  function applyView(cat) {
+    if (page !== "home" || !writing) return;
+    if (cat !== "all" && CATS.indexOf(cat) === -1) cat = "all";
+    var q = query.trim().toLowerCase();
+    var searching = q !== "";
+    var total = 0;
+    body.setAttribute("data-filter", searching ? "all" : cat);
+    body.classList.toggle("is-searching", searching);
+    setChips(searching ? "all" : cat);
+    for (var i = 0; i < shelves.length; i++) {
+      var shelf = shelves[i];
+      var key = shelf.getAttribute("data-cat");
+      var entries = shelf.querySelectorAll(".entry");
+      var hits = 0;
+      for (var j = 0; j < entries.length; j++) {
+        var entry = entries[j];
+        var match = searching ? String(entry.getAttribute("data-search")).indexOf(q) !== -1 : true;
+        if (match) hits++;
+        entry.hidden = !match;
+      }
+      shelf.classList.toggle("no-match", searching && hits === 0);
+      if (searching) total += hits;
+      else if (entries.length && (cat === "all" || cat === key)) total += entries.length;
+    }
+    if (result) {
+      if (searching) result.textContent = total ? "找到 " + total + " 篇" : "没有匹配的文章";
+      else if (cat === "all") result.textContent = "共 " + total + " 篇";
+      else result.textContent = "这一类 " + total + " 篇";
+    }
+    document.title = searching
+      ? "搜索：" + query.trim() + " · ANewLearner 的博客"
+      : "ANewLearner 的博客";
+  }
+
+  if (page === "home" && writing) {
+    if (input) {
+      input.addEventListener("input", function () {
+        query = input.value || "";
+        if (query.trim() && activeCat() !== "all") {
+          history.replaceState(null, "", location.pathname + location.search);
+        }
+        applyView(query.trim() ? "all" : activeCat());
+      });
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          input.value = "";
+          query = "";
+          applyView(activeCat());
+          input.blur();
+        }
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (!input || event.key !== "/") return;
+      var tag = (document.activeElement && document.activeElement.tagName) || "";
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+      event.preventDefault();
+      input.focus();
+      input.select();
+    });
+    window.addEventListener("hashchange", function () { applyView(activeCat()); });
+    window.addEventListener("popstate", function () { applyView(activeCat()); });
+    applyView(activeCat());
+  }
+
+  document.addEventListener("click", function (event) {
+    var target = event.target;
+    if (!target.closest) return;
+    var lookButton = target.closest(".looks button");
+    if (lookButton) {
+      applyLook(lookButton.getAttribute("data-look"));
+      return;
+    }
+    var themeButton = target.closest(".theme button");
+    if (themeButton) {
+      applyTheme(themeButton.getAttribute("data-theme-choice"));
+      return;
+    }
+    var chip = target.closest(".chips a");
+    if (chip && page === "home" && writing) {
+      event.preventDefault();
+      var next = hashKey(chip.getAttribute("href"));
+      if (next === activeCat() && next !== "all") next = "all";
+      if (input) {
+        input.value = "";
+        query = "";
+      }
+      var url = next === "all" ? location.pathname + location.search : "#" + next;
+      history.pushState(null, "", url);
+      applyView(next);
+      if (input) input.blur();
+      return;
+    }
+    var copyButton = target.closest("[data-copy]");
+    if (copyButton) {
+      var done = function () {
+        copyButton.textContent = "已复制链接";
+        copyButton.classList.add("is-done");
+        setTimeout(function () {
+          copyButton.textContent = "复制本文链接";
+          copyButton.classList.remove("is-done");
+        }, 2000);
+      };
+      var fallback = function () {
+        var area = document.createElement("textarea");
+        area.value = location.href;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.top = "-1000px";
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand("copy");
+          done();
+        } catch (e) {
+          copyButton.textContent = "请手动复制地址栏链接";
+        }
+        document.body.removeChild(area);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(location.href).then(done, fallback);
+      } else {
+        fallback();
+      }
+      return;
+    }
+    var top = target.closest(".to-top");
+    if (top) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  var toTop = document.querySelector(".to-top");
+  if (toTop) {
+    var onTopScroll = function () {
+      toTop.classList.toggle("is-on", window.scrollY > 700);
+    };
+    window.addEventListener("scroll", onTopScroll, { passive: true });
+    onTopScroll();
+  }
+
+  var readMark = document.querySelector(".read-mark");
+  if (readMark && page === "essay") {
+    var onProgress = function () {
+      var height = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = height > 0 ? window.scrollY / height : 0;
+      readMark.style.height = Math.max(0, Math.min(1, ratio)) * 100 + "%";
+    };
+    window.addEventListener("scroll", onProgress, { passive: true });
+    window.addEventListener("resize", onProgress);
+    onProgress();
+  }
+
+  var tocLinks = document.querySelectorAll(".toc a[href^='#']");
+  var tocSlot = document.querySelector(".toc-slot");
+  var tocRail = document.querySelector(".toc-rail");
+  var wide = window.matchMedia ? window.matchMedia("(min-width: 1120px)") : null;
+  function placeToc() {
+    if (!tocSlot || !tocRail) return;
+    var toc = tocSlot.querySelector(".toc") || tocRail.querySelector(".toc");
+    if (!toc) return;
+    var target = wide && wide.matches ? tocRail : tocSlot;
+    if (toc.parentNode !== target) target.appendChild(toc);
+    if (wide && wide.matches) toc.setAttribute("open", "");
+    else toc.removeAttribute("open");
+  }
+  placeToc();
+  if (wide && wide.addEventListener) wide.addEventListener("change", placeToc);
+
+  if (tocLinks.length && window.IntersectionObserver) {
+    var byId = {};
+    var headings = [];
+    for (var i = 0; i < tocLinks.length; i++) {
+      var anchor = tocLinks[i].getAttribute("href").slice(1);
+      var heading = document.getElementById(anchor);
+      if (!heading) continue;
+      byId[anchor] = tocLinks[i];
+      headings.push(heading);
+    }
+    var current = "";
+    var setCurrent = function (id) {
+      if (id === current) return;
+      if (current && byId[current]) byId[current].classList.remove("is-reading");
+      current = id;
+      if (byId[id]) {
+        byId[id].classList.add("is-reading");
+        var rail = byId[id].closest ? byId[id].closest("ol") : null;
+        var link = byId[id];
+        if (rail && link.offsetTop !== undefined) {
+          var top = link.offsetTop - rail.clientHeight / 2;
+          if (top > 0) rail.scrollTo({ top: top, behavior: "smooth" });
+        }
+      }
+    };
+    var observer = new IntersectionObserver(
+      function (records) {
+        var visible = records.filter(function (r) {
+          return r.isIntersecting;
+        });
+        if (!visible.length) return;
+        visible.sort(function (a, b) {
+          return a.boundingClientRect.top - b.boundingClientRect.top;
+        });
+        setCurrent(visible[0].target.id);
+      },
+      { rootMargin: "-15% 0px -70% 0px", threshold: [0, 1] },
+    );
+    for (var k = 0; k < headings.length; k++) observer.observe(headings[k]);
+  }
+})();
+</script>
 </body>
 </html>
