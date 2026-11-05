@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit generated posts
         run: |
-          git add index.html style.css .nojekyll posts content queue
+          git add index.html style.css .nojekyll CNAME posts content queue
           if git diff --cached --quiet; then
             echo "No file changes."
           else
